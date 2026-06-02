@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>小学同学照片</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+		body {
+			font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+			background: #ffffff;
+			min-height: 100vh;
+			padding: 40px 20px;
+		}
+		
+		.container {
+			width: 95%;
+			max-width: 1200px;
+			margin: 0 auto;
+			background: #ffffff;
+			padding: 0;
+		}
+		
+		.header {
+			text-align: center;
+			margin-bottom: 50px;
+			animation: fadeIn 0.8s ease-out;
+		}
+		
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+		
+		h1 {
+			color: #333;
+			font-size: 2rem;
+			margin-bottom: 15px;
+			font-weight: 400;
+			letter-spacing: 2px;
+		}
+		
+		h2 {
+			font-family: 'KaiTi', '楷体', serif;
+			color: #555;
+			font-size: 1.1rem;
+			margin-bottom: 20px;
+			font-weight: 400;
+		}
+		
+		.decorative-line {
+			width: 50px;
+			height: 1px;
+			background: #ddd;
+			margin: 20px auto;
+		}
+		
+		.back-link {
+			display: inline-block;
+			padding: 10px 0;
+			color: #333;
+			text-decoration: none;
+			font-weight: 400;
+			border-bottom: 1px solid #ddd;
+			transition: all 0.3s ease;
+			margin-bottom: 40px;
+		}
+		
+		.back-link:hover {
+			color: #000;
+			border-bottom-color: #333;
+		}
+		
+		.classmate-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+			gap: 30px;
+			margin: 40px 0;
+		}
+		
+		.classmate-card {
+			background: #fff;
+			border: 1px solid #eee;
+			text-align: center;
+			animation: fadeIn 0.8s ease-out both;
+		}
+		
+		.classmate-card:hover {
+			border-color: #ccc;
+		}
+		
+		.classmate-card img {
+			width: 100%;
+			height: 180px;
+			object-fit: cover;
+			display: block;
+		}
+		
+		.classmate-name {
+			padding: 15px 10px;
+			background: #fff;
+			font-family: 'KaiTi', '楷体', serif;
+			font-size: 1rem;
+			color: #333;
+			font-weight: 400;
+			border-top: 1px solid #f0f0f0;
+		}
+		
+		.special-section {
+			margin: 60px 0;
+			padding: 40px;
+			background: #fafafa;
+			text-align: center;
+			border: 1px solid #eee;
+		}
+		
+		.video-container {
+			margin: 30px 0;
+			text-align: center;
+		}
+		
+		video {
+			max-width: 100%;
+			height: auto;
+			border: 1px solid #eee;
+		}
+		
+		.birthday-section {
+			margin: 40px 0;
+			text-align: center;
+		}
+		
+		.birthday-images {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+		
+		.birthday-images img {
+			max-width: 300px;
+			height: auto;
+			border: 1px solid #eee;
+			cursor: pointer;
+		}
+		
+		.birthday-images img:hover {
+			border-color: #ccc;
+		}
+		
+		.date-info {
+			margin: 40px 0;
+			padding: 30px;
+			background: #fafafa;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+			text-align: center;
+			border: 1px solid #eee;
+		}
+		
+		.date-item h3 {
+			color: #333;
+			margin-bottom: 10px;
+			font-size: 1rem;
+			font-weight: 400;
+		}
+		
+		.date-item p {
+			color: #999;
+			font-size: 0.9rem;
+		}
+		
+		/* 响应式设计 */
+		@media (max-width: 768px) {
+			.container {
+				width: 98%;
+				padding: 0;
+			}
+			
+			h1 {
+				font-size: 1.8rem;
+			}
+			
+			.classmate-grid {
+				grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+				gap: 20px;
+			}
+			
+			.classmate-card img {
+				height: 150px;
+			}
+		}
+		
+		@media (max-width: 480px) {
+			h1 {
+				font-size: 1.6rem;
+			}
+			
+			.classmate-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+			}
+			
+			.classmate-card img {
+				height: 120px;
+			}
+			
+			.birthday-images img {
+				max-width: 200px;
+			}
+		}
+		</style>
+	</head>
+	<body>
+	<div class="container">
+		<div class="header">
+			<h1>小学同学相册</h1>
+			<p>2018年6月 · 金实小学源清校区 · 五年纪念日</p>
+			<div class="decorative-line"></div>
+		</div>
+		
+		<div style="text-align: center;">
+			<a href="sn.html" class="back-link">返回学校照片</a>
+		</div>
+		
+		<div class="classmate-grid">
+			<!-- 同学照片网格 -->
+				<div class="classmate-card" style="animation-delay: 0.1s">
+					<img src="../xxxc/wangjiao.jpg" alt="王姣">
+					<div class="classmate-name">王姣</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.2s">
+					<img src="../xxxc/yinqihao.jpg" alt="尹奇浩">
+					<div class="classmate-name">尹奇浩</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.3s">
+					<img src="../xxxc/wangshuting.jpg" alt="王舒婷">
+					<div class="classmate-name">王舒婷</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.4s">
+					<img src="../xxxc/muguanwen.jpg" alt="沐关文">
+					<div class="classmate-name">沐关文</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.5s">
+					<img src="../xxxc/duyulin.jpg" alt="杜玉林">
+					<div class="classmate-name">杜玉林</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.6s">
+					<img src="../xxxc/tangaijia.jpg" alt="唐艾佳">
+					<div class="classmate-name">唐艾佳</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.7s">
+					<img src="../xxxc/mengxi.jpg" alt="蒙溪">
+					<div class="classmate-name">蒙溪</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.8s">
+					<img src="../xxxc/lixueming.jpg" alt="李学明">
+					<div class="classmate-name">李学明</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 0.9s">
+					<img src="../xxxc/liuxinglei.jpg" alt="刘兴雷">
+					<div class="classmate-name">刘兴雷</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.0s">
+					<img src="../xxxc/lirongtao.jpg" alt="李荣涛">
+					<div class="classmate-name">李荣涛</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.1s">
+					<img src="../xxxc/lili.jpg" alt="李丽丽">
+					<div class="classmate-name">李丽丽</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.2s">
+					<img src="../xxxc/liuyumeng.jpg" alt="刘玉梦">
+					<div class="classmate-name">刘玉梦</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.3s">
+					<img src="../xxxc/zhanghaoran.jpg" alt="张浩然">
+					<div class="classmate-name">张浩然</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.4s">
+					<img src="../xxxc/chentingmei.jpg" alt="陈婷美">
+					<div class="classmate-name">陈婷美</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.5s">
+					<img src="../xxxc/zhangnala.jpg" alt="张娜拉">
+					<div class="classmate-name">张娜拉</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.6s">
+					<img src="../xxxc/wangjunjie.jpg" alt="王俊杰">
+					<div class="classmate-name">王俊杰</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.7s">
+					<img src="../xxxc/zhanghongling.jpg" alt="张鸿玲">
+					<div class="classmate-name">张鸿玲</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.8s">
+					<img src="../xxxc/yuheng.jpg" alt="余恒">
+					<div class="classmate-name">余恒</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 1.9s">
+					<img src="../xxxc/yangxi.jpg" alt="杨溪">
+					<div class="classmate-name">杨溪</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.0s">
+					<img src="../xxxc/yuhongquan.jpg" alt="瑜鸿荃">
+					<div class="classmate-name">瑜鸿荃</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.1s">
+					<img src="../xxxc/helinjia.jpg" alt="何林家">
+					<div class="classmate-name">何林家</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.2s">
+					<img src="../xxxc/daiqinli.jpg" alt="代琴丽">
+					<div class="classmate-name">代琴丽</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.3s">
+					<img src="../xxxc/lulongyou.jpg" alt="吕龙有">
+					<div class="classmate-name">吕龙有</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.4s">
+					<img src="../xxxc/wangqinglang.jpg" alt="王清浪">
+					<div class="classmate-name">王清浪</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.5s">
+					<img src="../xxxc/xiongrui.jpg" alt="熊芮">
+					<div class="classmate-name">熊芮</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.6s">
+					<img src="../xxxc/fanbaoling.jpg" alt="樊宝灵">
+					<div class="classmate-name">樊宝灵</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.7s">
+					<img src="../xxxc/zhangdie.jpg" alt="张蝶">
+					<div class="classmate-name">张蝶</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.8s">
+					<img src="../xxxc/yehao.jpg" alt="叶浩">
+					<div class="classmate-name">叶浩</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 2.9s">
+					<img src="../xxxc/yinjiao.jpg" alt="尹娇">
+					<div class="classmate-name">尹娇</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.0s">
+					<img src="../xxxc/duguifen.jpg" alt="杜桂芬">
+					<div class="classmate-name">杜桂芬</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.1s">
+					<img src="../xxxc/liyun.jpg" alt="李云">
+					<div class="classmate-name">李云</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.2s">
+					<img src="../xxxc/yeqianyun.jpg" alt="叶黔云">
+					<div class="classmate-name">叶黔云</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.3s">
+					<img src="../xxxc/yanqingyu.jpg" alt="宴庆玉">
+					<div class="classmate-name">宴庆玉</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.4s">
+					<img src="../xxxc/zhaoqifeng.jpg" alt="赵启锋">
+					<div class="classmate-name">赵启锋</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.5s">
+					<img src="../xxxc/liyuan.jpg" alt="李源">
+					<div class="classmate-name">李源</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.6s">
+					<img src="../xxxc/tuhua.jpg" alt="屠华">
+					<div class="classmate-name">屠华</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.7s">
+					<img src="../xxxc/yangwentao.jpg" alt="杨文涛">
+					<div class="classmate-name">杨文涛</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.8s">
+					<img src="../xxxc/zhaozening.jpg" alt="赵泽宁">
+					<div class="classmate-name">赵泽宁</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 3.9s">
+					<img src="../xxxc/yanghongmin.jpg" alt="杨宏敏">
+					<div class="classmate-name">杨宏敏</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.0s">
+					<img src="../xxxc/luoyongkun.jpg" alt="罗永昆">
+					<div class="classmate-name">罗永昆</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.1s">
+					<img src="../xxxc/zhangguanfeng.jpg" alt="张官凤">
+					<div class="classmate-name">张官凤</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.2s">
+					<img src="../xxxc/zhuhaiying.jpg" alt="朱海英">
+					<div class="classmate-name">朱海英</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.3s">
+					<img src="../xxxc/yangqinfen.jpg" alt="杨琴芬">
+					<div class="classmate-name">杨琴芬</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.4s">
+					<img src="../xxxc/dumin.jpg" alt="杜敏">
+					<div class="classmate-name">杜敏</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.5s">
+					<img src="../xxxc/yangchangxin.jpg" alt="杨昌鑫">
+					<div class="classmate-name">杨昌鑫</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.6s">
+					<img src="../xxxc/yuandaolin.jpg" alt="袁道林">
+					<div class="classmate-name">袁道林</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.7s">
+					<img src="../xxxc/xubendi.jpg" alt="徐本迪">
+					<div class="classmate-name">徐本迪</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.8s">
+					<img src="../xxxc/xuchaofan.jpg" alt="徐超凡">
+					<div class="classmate-name">徐超凡</div>
+				</div>
+				<div class="classmate-card" style="animation-delay: 4.9s">
+					<img src="../xxxc/huxiaolu.jpg" alt="胡晓露">
+					<div class="classmate-name">胡晓露</div>
+				</div>
+			</div>
+			<!-- 特别回忆部分 -->
+			<div class="special-section">
+				<h2>还记得那时候的手语操吗？</h2>
+				<div class="video-container">
+					<video src="../xxxc/1097_3a809bcf1e6840109482857bc821dbbb.f20.mp4" controls width="700px"></video>
+				</div>
+			</div>
+			
+			<div class="birthday-section">
+				<h2>还记得六一杨溪生日吗？</h2>
+				<div class="birthday-images">
+					<img src="../xxxc/default.jpg" alt="杨溪生日">
+					<img src="../xxxc/default (1).jpg" alt="生日照片">
+				</div>
+			</div>
+			
+			<!-- 日期信息 -->
+			<div class="date-info">
+				<div class="date-item">
+					<h3>时间</h3>
+					<p>2018年6月</p>
+				</div>
+				<div class="date-item">
+					<h3>地点</h3>
+					<p>金实小学源清校区</p>
+				</div>
+				<div class="date-item">
+					<h3>纪念</h3>
+					<p>五年纪念日</p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// 图片点击放大功能
+			document.addEventListener('DOMContentLoaded', function() {
+				const images = document.querySelectorAll('.classmate-card img, .birthday-images img');
+				
+				images.forEach(img => {
+					img.style.cursor = 'pointer';
+					img.addEventListener('click', function() {
+						const modal = document.createElement('div');
+						modal.style.cssText = `
+							position: fixed;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background: rgba(255, 255, 255, 0.95);
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							z-index: 1000;
+							cursor: pointer;
+						`;
+						
+						const modalImg = document.createElement('img');
+						modalImg.src = this.src;
+						modalImg.alt = this.alt;
+						modalImg.style.cssText = `
+							max-width: 90%;
+							max-height: 90%;
+							object-fit: contain;
+							border: 1px solid #eee;
+						`;
+						
+						modal.appendChild(modalImg);
+						document.body.appendChild(modal);
+						
+						modal.addEventListener('click', function() {
+							document.body.removeChild(modal);
+						});
+					});
+				});
+				
+				// 图片加载失败处理
+				const allImages = document.querySelectorAll('img');
+				allImages.forEach(img => {
+					img.addEventListener('error', function() {
+						this.style.display = 'none';
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

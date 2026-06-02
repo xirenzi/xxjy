@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>回忆 - 2018年时光</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+      background: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background: #ffffff;
+      padding: 50px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    
+    .biaoti {
+      font-family: 'KaiTi', '楷体', serif;
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #555;
+      text-align: justify;
+      margin: 30px 0;
+      padding: 25px;
+      background: #fafafa;
+      border-left: 3px solid #ddd;
+    }
+    
+    .countdown {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 40px;
+      letter-spacing: 1px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 2px;
+      background: #f0f0f0;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      background: #333;
+      width: 0%;
+      animation: progress 2s linear forwards;
+    }
+    
+    @keyframes progress {
+      to { width: 100%; }
+    }
+    
+    /* 简单的装饰线 */
+    .decorative-line {
+      width: 50px;
+      height: 1px;
+      background: #ddd;
+      margin: 30px auto;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 30px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .biaoti {
+        font-size: 1rem;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>回忆2018年</h1>
+    
+    <div class="decorative-line"></div>
+    
+    <div class="biaoti">
+      命运就是这样的，时间的使命就是给我们留下更多的记忆。或许一个人久了回忆会变得伤感，会流泪，会拼命地想忘记。也许你只是感到孤单了，那就找个人好好地爱。别妄想忘记那些在你生命里埋下秘密的记忆。没有你，它们是苦无依的，只有你，才让它们附着了鲜活的灵魂，这个空间才有它们存在的意义。
+    </div>
+    
+    <div class="decorative-line"></div>
+    
+    <div class="countdown">
+      <span id="countdown-text">页面将在 <span id="seconds">2</span> 秒后跳转...</span>
+    </div>
+    
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    // 倒计时功能
+    let seconds = 2;
+    const countdownElement = document.getElementById('seconds');
+    const countdownText = document.getElementById('countdown-text');
+    
+    const timer = setInterval(() => {
+      seconds--;
+      countdownElement.textContent = seconds;
+      
+      if (seconds <= 0) {
+        clearInterval(timer);
+        countdownText.textContent = '正在跳转...';
+        setTimeout(() => {
+          window.location.href = 'zs/sn.html';
+        }, 500);
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

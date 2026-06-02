@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学校</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+      background: #ffffff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeIn 0.8s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    
+    .subtitle {
+      color: #999;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+    
+    .decorative-line {
+      width: 50px;
+      height: 1px;
+      background: #ddd;
+      margin: 20px auto;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      display: inline-block;
+      padding: 10px 0;
+      color: #333;
+      text-decoration: none;
+      font-weight: 400;
+      border-bottom: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #000;
+      border-bottom-color: #333;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .gallery-item {
+      background: #ffffff;
+      border: 1px solid #eee;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: fadeIn 0.8s ease-out both;
+    }
+    
+    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+    .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+    .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+    
+    .gallery-item:hover {
+      border-color: #ccc;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .image-caption {
+      padding: 15px 20px;
+      background: #fff;
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    .image-caption h3 {
+      color: #333;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    
+    .image-caption p {
+      color: #999;
+      font-size: 0.85rem;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+      }
+      
+      .gallery-item img {
+        height: 200px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .nav-link {
+        padding: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>学校照片</h1>
+    <p class="subtitle">记录校园美好时光，珍藏青春回忆</p>
+    <div class="decorative-line"></div>
+  </div>
+  
+  <div class="nav">
+    <a href="new_file.html" class="nav-link">同学相册</a>
+  </div>
+  
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="../xxzp/1.jpg" alt="操场" loading="lazy">
+      <div class="image-caption">
+        <h3>操场</h3>
+        <p>挥洒汗水的青春场地</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="../xxzp/2.jpg" alt="斜坡" loading="lazy">
+      <div class="image-caption">
+        <h3>斜坡</h3>
+        <p>连接校园的绿色长廊</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="../xxzp/3.jpg" alt="综合楼" loading="lazy">
+      <div class="image-caption">
+        <h3>综合楼</h3>
+        <p>知识汇聚的殿堂</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="../xxzp/4.jpg" alt="综合楼与教学楼走廊" loading="lazy">
+      <div class="image-caption">
+        <h3>综合楼与教学楼走廊</h3>
+        <p>连接知识与梦想的通道</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="../xxzp/5.jpg" alt="教学楼" loading="lazy">
+      <div class="image-caption">
+        <h3>教学楼</h3>
+        <p>承载青春记忆的殿堂</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 图片加载失败处理
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          this.style.display = 'none';
+        });
+      });
+      
+      // 简单的点击放大效果
+      const galleryImages = document.querySelectorAll('.gallery-item img');
+      galleryImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+          const modal = document.createElement('div');
+          modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+          `;
+          
+          const modalImg = document.createElement('img');
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+          modalImg.style.cssText = `
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 1px solid #eee;
+          `;
+          
+          modal.appendChild(modalImg);
+          document.body.appendChild(modal);
+          
+          modal.addEventListener('click', function() {
+            document.body.removeChild(modal);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
